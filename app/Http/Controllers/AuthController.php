@@ -23,7 +23,8 @@ class AuthController extends Controller
         $user = User::create($data);
         return response()->json([
             'status' => 201,
-            'data' => $user
+            'data' => $user,
+            "token"=>null
         ]);
     }
 
@@ -39,6 +40,7 @@ class AuthController extends Controller
         if (!empty($token)){
             return response()->json([
                 'status'=>200,
+                'data'=>auth()->user(),
                 'token'=>$token,
             ]);
         }else{

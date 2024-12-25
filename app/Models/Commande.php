@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Commande extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'dateCommande',
+        'montant',
+        'numeroCommande',
+        'etat',
+        'dateLivraisonCommande',
+        'client_id',
+    ];
     public  function produit()
     {
         return $this->belongsTo(Produit::class);

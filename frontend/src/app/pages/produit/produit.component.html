@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ecommerce Navbar Design</title>
+
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<!--  <link rel="stylesheet" href="css/style.css">-->
+</head>
+<body>
+<style>
+  .main-navbar{
+    border-bottom: 1px solid #ccc;
+  }
+  .main-navbar .top-navbar{
+    background-color: #000000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .main-navbar .top-navbar .brand-name{
+    color: #fff;
+  }
+  .main-navbar .top-navbar .nav-link{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .main-navbar .top-navbar .dropdown-menu{
+    padding: 0px 0px;
+    border-radius: 0px;
+  }
+  .main-navbar .top-navbar .dropdown-menu .dropdown-item{
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+  }
+  .main-navbar .top-navbar .dropdown-menu .dropdown-item i{
+    width: 20px;
+    text-align: center;
+    color: #2874f0;
+    font-size: 14px;
+  }
+  .main-navbar .navbar{
+    padding: 0px;
+    background-color: #f1c40f;
+  }
+  .main-navbar .navbar .nav-item .nav-link{
+    padding: 8px 20px;
+    color: #000;
+    font-size: 15px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .main-navbar .top-navbar .nav-link{
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+  }
+
+/*  FOOTER*/
+  .footer-area{
+    padding: 40px 0px;
+    background-color: #000000;
+    color: #fff;
+  }
+  .footer-area a{
+    text-decoration: none;
+  }
+  .footer-area .footer-heading{
+    font-size: 24px;
+    color: #fff;
+  }
+  .footer-area .footer-underline{
+    height: 1px;
+    width: 70px;
+    background-color: #ddd;
+    margin: 10px 0px;
+  }
+  .copyright-area{
+    padding: 14px 0px;
+    background-color: #262626;
+  }
+  .copyright-area p{
+    margin-bottom: 0px;
+    color: #fff;
+  }
+  .copyright-area .social-media{
+    text-align: end;
+  }
+  .copyright-area .social-media a{
+    margin: 0px 10px;
+    color: #fff;
+    width: 20px;
+  }
+
+/*  <!-- ECOMMERCE SLIDER DESIGN -->*/
+  .carousel-item .custom-carousel-content{
+    width: 50%;
+    transform: translate(0%, -10%);
+  }
+  .custom-carousel-content{
+    text-align: start;
+  }
+  .custom-carousel-content h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  .custom-carousel-content h1 span{
+    color: #fbff00;
+  }
+  .custom-carousel-content p{
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  .custom-carousel-content .btn-slider{
+    border: 1px solid #fff;
+    border-radius: 0px;
+    padding: 8px 26px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+/*  <!--Products List template design-->*/
+  /* Product Card */
+  .product-card{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 24px;
+  }
+  .product-card a{
+    text-decoration: none;
+  }
+  .product-card .stock{
+    position: absolute;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 12px;
+    margin: 8px;
+    font-size: 12px;
+  }
+  .product-card .product-card-img{
+    max-height: 260px;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+  }
+  .product-card .product-card-img img{
+    width: 100%;
+  }
+  .product-card .product-card-body{
+    padding: 10px 10px;
+  }
+  .product-card .product-card-body .product-brand{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color: #937979;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .product-card .product-card-body .product-name{
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .product-card .product-card-body .selling-price{
+    font-size: 22px;
+    color: #000;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .product-card .product-card-body .original-price{
+    font-size: 18px;
+    color: #937979;
+    font-weight: 400;
+    text-decoration: line-through;
+  }
+  .product-card .product-card-body .btn1{
+    border: 1px solid;
+    margin-right: 3px;
+    border-radius: 0px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  /* Product Card End */
+
+
+</style>
+<!--NAVBAR-->
+<div class="main-navbar shadow-sm sticky-top">
+  <div class="top-navbar">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
+          <h5 class="brand-name">Flochic</h5>
+        </div>
+        <div class="col-md-5 my-auto">
+          <form role="search">
+            <div class="input-group">
+              <input type="search" placeholder="Search your product" class="form-control" />
+              <button class="btn bg-white" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-5 my-auto">
+          <ul class="nav justify-content-end">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-shopping-cart"></i> Cart (0)
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-heart"></i> Wishlist (0)
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" [routerLink]="['/login']" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user"></i> Username
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
+        Funda Ecom
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse offset-4 fw-bold" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-2 mb-lg-0 col-md-6">
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/']" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['']">All Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"[routerLink]="['']">New Arrivals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['']">Fashions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"[routerLink]="['']">Accessories</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- ECOMMERCE SLIDER DESIGN -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/images/red-phone-with-red-case-bottom_337384-138848.avif" class="d-block w-100" alt="..." >
+      <div class="carousel-caption d-none d-md-block">
+        <div class="custom-carousel-content">
+          <h1>
+            <span>FLOCHIC est une boutique spécialisée dans la vente d’accessoires </span>
+            &amp; hommes et femmes
+          </h1>
+          <p>
+            We offer an industry-driven and successful digital marketing strategy that helps our clients
+            in achieving a strong online presence and maximum company profit.
+          </p>
+          <div>
+            <a href="#" class="btn btn-slider">
+              Get Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/images/women-holding-shopping-bags-with-copy-space_23-2148385726.avif" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="custom-carousel-content">
+          <h1>
+            <span>Best Ecommerce Solutions 2 </span>
+            to Boost your Brand Name &amp; Sales
+          </h1>
+          <p>
+            We offer an industry-driven and successful digital marketing strategy that helps our clients
+            in achieving a strong online presence and maximum company profit.
+          </p>
+          <div>
+            <a href="#" class="btn btn-slider">
+              Get Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/images/red-phone-with-red-case-bottom_337384-138848.avif" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <div class="custom-carousel-content">
+          <h1>
+            <span>Best Ecommerce Solutions 3 </span>
+            to Boost your Brand Name &amp; Sales
+          </h1>
+          <p>
+            We offer an industry-driven and successful digital marketing strategy that helps our clients
+            in achieving a strong online presence and maximum company profit.
+          </p>
+          <div>
+            <a href="#" class="btn btn-slider">
+              Get Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!--Products List template design-->
+
+<div class="py-3 py-md-5 bg-light">
+  <div class="container">
+    <div class="row" >
+      <div class="col-md-12">
+        <h4 class="mb-4">Nos  Produits</h4>
+      </div>
+      <div class="col-md-3" *ngFor="let tabProduit of tabProduits">
+        <div class="product-card">
+          <div class="product-card-img">
+            <label class="stock bg-success">In Stock</label>
+            <img src="{{tabProduit.image}}" alt="{{tabProduit.libelleProd}}">
+          </div>
+          <div class="product-card-body">
+<!--            <p class="product-brand">Asus</p>-->
+            <h5 class="product-name">
+              <a href="">
+                {{ tabProduit.libelleProd}}
+              </a>
+            </h5>
+            <div>
+              <span class="selling-price">{{tabProduit.prixU}}</span>
+              <span class="original-price">$499</span>
+            </div>
+            <div class="mt-2">
+              <a href="" class="btn btn1">Add To Cart</a>
+              <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>
+              <a href="" class="btn btn1"> View </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<!--FOOTER-->
+
+<div>
+  <div class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h4 class="footer-heading">Funda E-Commerce</h4>
+          <div class="footer-underline"></div>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-underline"></div>
+          <div class="mb-2"><a href="" class="text-white">Home</a></div>
+          <div class="mb-2"><a href="" class="text-white">About Us</a></div>
+          <div class="mb-2"><a href="" class="text-white">Contact Us</a></div>
+          <div class="mb-2"><a href="" class="text-white">Blogs</a></div>
+          <div class="mb-2"><a href="" class="text-white">Sitemaps</a></div>
+        </div>
+        <div class="col-md-3">
+          <h4 class="footer-heading">Shop Now</h4>
+          <div class="footer-underline"></div>
+          <div class="mb-2"><a href="" class="text-white">Collections</a></div>
+          <div class="mb-2"><a href="" class="text-white">Trending Products</a></div>
+          <div class="mb-2"><a href="" class="text-white">New Arrivals Products</a></div>
+          <div class="mb-2"><a href="" class="text-white">Featured Products</a></div>
+          <div class="mb-2"><a href="" class="text-white">Cart</a></div>
+        </div>
+        <div class="col-md-3">
+          <h4 class="footer-heading">Reach Us</h4>
+          <div class="footer-underline"></div>
+          <div class="mb-2">
+            <p>
+              <i class="fa fa-map-marker"></i> #444, some main road, some area, some street, bangalore, india - 560077
+            </p>
+          </div>
+          <div class="mb-2">
+            <a href="" class="text-white">
+              <i class="fa fa-phone"></i> +91 888-XXX-XXXX
+            </a>
+          </div>
+          <div class="mb-2">
+            <a href="" class="text-white">
+              <i class="fa fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p class=""> &copy; 2022 - Funda of Web IT - Ecommerce. All rights reserved.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="social-media">
+            Get Connected:
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
+            <a href=""><i class="fa fa-instagram"></i></a>
+            <a href=""><i class="fa fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<!--<div class="col-md-3">-->
+<!--  <div class="product-card">-->
+<!--    <div class="product-card-img">-->
+<!--      <label class="stock bg-success">In Stock</label>-->
+<!--      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLn7_soDZnU_BQa63BbbGZddp1qT-c8HL_Sg&s" alt="Mens Shirt">-->
+<!--    </div>-->
+<!--    <div class="product-card-body">-->
+<!--      <p class="product-brand">Levis</p>-->
+<!--      <h5 class="product-name">-->
+<!--        <a href="">-->
+<!--          Mens Shirt-->
+<!--        </a>-->
+<!--      </h5>-->
+<!--      <div>-->
+<!--        <span class="selling-price">$299</span>-->
+<!--        <span class="original-price">$359</span>-->
+<!--      </div>-->
+<!--      <div class="mt-2">-->
+<!--        <a href="" class="btn btn1">Add To Cart</a>-->
+<!--        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>-->
+<!--        <a href="" class="btn btn1"> View </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
+
+<!--<div class="col-md-3">-->
+<!--  <div class="product-card">-->
+<!--    <div class="product-card-img">-->
+<!--      <label class="stock bg-success">In Stock</label>-->
+<!--      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLn7_soDZnU_BQa63BbbGZddp1qT-c8HL_Sg&s" alt="Mens Shirt">-->
+<!--    </div>-->
+<!--    <div class="product-card-body">-->
+<!--      <p class="product-brand">Levis</p>-->
+<!--      <h5 class="product-name">-->
+<!--        <a href="">-->
+<!--          Mens Shirt-->
+<!--        </a>-->
+<!--      </h5>-->
+<!--      <div>-->
+<!--        <span class="selling-price">$299</span>-->
+<!--        <span class="original-price">$359</span>-->
+<!--      </div>-->
+<!--      <div class="mt-2">-->
+<!--        <a href="" class="btn btn1">Add To Cart</a>-->
+<!--        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>-->
+<!--        <a href="" class="btn btn1"> View </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="col-md-3">-->
+<!--  <div class="product-card">-->
+<!--    <div class="product-card-img">-->
+<!--      <label class="stock bg-success">In Stock</label>-->
+<!--      <img src="data:image/jpeg;base64,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" alt="Mens Shirt">-->
+<!--    </div>-->
+<!--    <div class="product-card-body">-->
+<!--      <p class="product-brand">Levis</p>-->
+<!--      <h5 class="product-name">-->
+<!--        <a href="">-->
+<!--          Mens Shirt-->
+<!--        </a>-->
+<!--      </h5>-->
+<!--      <div>-->
+<!--        <span class="selling-price">$299</span>-->
+<!--        <span class="original-price">$359</span>-->
+<!--      </div>-->
+<!--      <div class="mt-2">-->
+<!--        <a href="" class="btn btn1">Add To Cart</a>-->
+<!--        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>-->
+<!--        <a href="" class="btn btn1"> View </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="col-md-3">-->
+<!--  <div class="product-card">-->
+<!--    <div class="product-card-img">-->
+<!--      <label class="stock bg-success">In Stock</label>-->
+<!--      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgghSWLK3yJ6OvrZnDU50JTe77fWcaX7Bq2g&s" alt="Mens Shirt">-->
+<!--    </div>-->
+<!--    <div class="product-card-body">-->
+<!--      <p class="product-brand">Levis</p>-->
+<!--      <h5 class="product-name">-->
+<!--        <a href="">-->
+<!--          Mens Shirt-->
+<!--        </a>-->
+<!--      </h5>-->
+<!--      <div>-->
+<!--        <span class="selling-price">$299</span>-->
+<!--        <span class="original-price">$359</span>-->
+<!--      </div>-->
+<!--      <div class="mt-2">-->
+<!--        <a href="" class="btn btn1">Add To Cart</a>-->
+<!--        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>-->
+<!--        <a href="" class="btn btn1"> View </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="col-md-3" >-->
+<!--  <div class="product-card">-->
+<!--    <div class="product-card-img">-->
+<!--      <label class="stock bg-success">In Stock</label>-->
+<!--      <img src="data:image/jpeg;base64,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" alt="Mens Shirt">-->
+<!--    </div>-->
+<!--    <div class="product-card-body">-->
+<!--      <p class="product-brand">Levis</p>-->
+<!--      <h5 class="product-name">-->
+<!--        <a href="">-->
+<!--          Mens Shirt-->
+<!--        </a>-->
+<!--      </h5>-->
+<!--      <div>-->
+<!--        <span class="selling-price">$299</span>-->
+<!--        <span class="original-price">$359</span>-->
+<!--      </div>-->
+<!--      <div class="mt-2">-->
+<!--        <a href="" class="btn btn1">Add To Cart</a>-->
+<!--        <a href="" class="btn btn1"> <i class="fa fa-heart"></i> </a>-->
+<!--        <a href="" class="btn btn1"> View </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

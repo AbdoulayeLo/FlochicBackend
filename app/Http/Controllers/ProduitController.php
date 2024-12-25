@@ -19,16 +19,17 @@ class ProduitController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $data=$request->all();
-        if ($request->hasFile('image')){
-            $path =$request->file('image')->store('images','public');
-            $data['image']=$path;
-        }
-        $produit = Produit::create($data);
-        return response()->json($produit,201);
-    }
+    //! store 1
+//    public function store(Request $request)
+//    {
+//        $data=$request->all();
+//        if ($request->hasFile('image')){
+//            $path =$request->file('image')->store('images','public');
+//            $data['image']=$path;
+//        }
+//        $produit = Produit::create($data);
+//        return response()->json($produit,201);
+//    }
 //    public function store(Request $request)
 //    {
 //        // Validation des données d'entrée
@@ -53,6 +54,24 @@ class ProduitController extends Controller
 //        // Retourner une réponse JSON avec le produit créé
 //        return response()->json($produit, 201);
 //    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+//            $path = $request->file('image')->getClientOriginalName();
+            $data['image'] = $path;
+        }
+
+        $produit = Produit::create($data);
+
+        // Ajouter l'URL complète de l'image
+        $produit->image = $produit->image ? asset('storage/' . $produit->image) : null;
+
+        return response()->json($produit, 201);
+    }
+
 
     /**
      * Display the specified resource.
